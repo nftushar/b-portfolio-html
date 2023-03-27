@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animation Slider</title>
+	<style>
+		#slider {
+			width: 500px;
+			height: 20px;
+			background-color: #ddd;
+			position: relative;
+			margin: 50px auto;
+		}
+
+		#slider .handle {
+			position: absolute;
+			top: -5px;
+			left: 0;
+			width: 20px;
+			height: 30px;
+			background-color: #333;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="slider">
+		<div class="handle"></div>
+	</div>
+	<script>
+		// Set up the slider element and handle
+		var slider = document.getElementById("slider");
+		var handle = document.querySelector(".handle");
+
+		// Set up the slider dimensions and initial position
+		var sliderWidth = slider.offsetWidth;
+		var handleWidth = handle.offsetWidth;
+		var handlePosition = 0;
+
+		// Set up the animation loop
+		var intervalId = setInterval(function() {
+			// Update the handle position
+			handlePosition += 1;
+			if (handlePosition > sliderWidth - handleWidth) {
+				handlePosition = 0;
+			}
+			handle.style.left = handlePosition + "px";
+		}, 10);
+	</script>
+</body>
+</html>
